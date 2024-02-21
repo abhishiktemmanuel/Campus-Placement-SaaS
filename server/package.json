@@ -2,9 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "a backend to handel data for campus placements",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "placement",
@@ -12,5 +13,8 @@
     "backend"
   ],
   "author": "Abhishikt, Taran, Shashwat",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }
