@@ -19,10 +19,8 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Profile from './components/Pages/Profile.jsx'; 
 import Help from './components/Pages/Help.jsx';
 
-// Assuming you have a function to check if the user is authenticated
-// This can be a simple check against localStorage, Firebase auth state, etc.
+
 const isAuthenticated = () => {
-  // Implement your authentication logic here
   return !!localStorage.getItem('user');
 };
 

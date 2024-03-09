@@ -10,6 +10,7 @@ const AuthForm = () => {
   };
 
   return (
+
     <div className="mx-6 flex flex-row justify-center items-center min-h-screen">
       <div className={` max-w-md overflow-hidden transition-all duration-500 ease-in-out bg-white bg-opacity-20 rounded-3xl backdrop-blur-lg shadow-2xl  ${isRegistering ? 'py-16' : 'py-8'}`}>
         <div className="flex">
