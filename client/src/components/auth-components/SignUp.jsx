@@ -33,10 +33,20 @@ const SignUpForm = ({ toggleForm }) => {
   return (
     <div>
       <h2 className="text-3xl text-center text-black font-bold mb-8">Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input class="input-field" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input class="input-field" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input class="input-field" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <form onSubmit={handleSubmit} className="space-y-4">
+      
+        <div className="relative">
+          <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} required className="peer input-field" placeholder="Username" />
+          <label htmlFor="username" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-6">Username</label>
+        </div>
+        <div className="relative">
+          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="input-field peer " placeholder="Email" />
+          <label htmlFor="email" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Email</label>
+        </div>
+        <div className="relative">
+          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="peer input-field" placeholder="Password" />
+          <label htmlFor="password" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Password</label>
+        </div>        
         <div className="flex justify-between items-center mb-6">
           <label className="flex items-center text-sm text-black">
             <input type="checkbox" className="form-checkbox h-4 w-4 text-black mr-2" /> I agree to Terms & Conditions

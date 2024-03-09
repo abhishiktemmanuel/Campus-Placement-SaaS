@@ -30,16 +30,23 @@ const LoginForm = ({ toggleForm }) => {
   };
 
   return (
-    <div >
-      <h2 className="text-3xl text-center text-black font-bold mb-8">Login</h2>
-      <form onSubmit={handleSubmit} >
-        <input class="input-field" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required  />
-        <input class="input-field" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required  />
-        <button class="submit" type="submit" >Login</button>
-      </form>
-      <button class="submit  text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring" onClick={handleGoogleSignIn} style={{backgroundColor: '#4285F4', color: 'white' }}>Sign in with Google</button>
-      <ToggleFormLink isRegistering={false} toggleForm={toggleForm} />
+    <div className="text-center">
+  <h2 className="text-3xl text-black font-bold mb-8">Login</h2>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="relative">
+      <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="input-field peer " placeholder="Email" />
+      <label htmlFor="email" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Email</label>
     </div>
+    <div className="relative">
+      <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="peer input-field" placeholder="Password" />
+      <label htmlFor="password" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Password</label>
+    </div>
+    <button type="submit" className="submit">Login</button>
+  </form>
+  <button onClick={handleGoogleSignIn} className="submit text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring" style={{backgroundColor: '#4285F4', color: 'white'}}>Sign in with Google</button>
+  <ToggleFormLink isRegistering={false} toggleForm={toggleForm} />
+</div>
+
   );
 };
 
