@@ -8,15 +8,13 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import AuthForm from './components/Pages/AuthTester.jsx';
+import AuthForm from './components/Pages/AuthForm.jsx';
 import Layout from './Layout.jsx';
 import './index.css';
 import App from './App.jsx'; // Assuming App is not used since it's not included in the routes below.
 import Home from './components/Pages/Home.jsx';
 import PastApplications from './components/Pages/PastApplications.jsx';
 import OpenApplications from './components/Pages/OpenApplications.jsx';
-import Login from './components/Pages/Login.jsx';
-import Signup from './components/Pages/Signup.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx'; 
 import Profile from './components/Pages/Profile.jsx'; 
 import Help from './components/Pages/Help.jsx';
@@ -31,9 +29,7 @@ const isAuthenticated = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="signup" element={<Signup />} />
       <Route path="login" element={<AuthForm />} />
-      {/* <Route path="login" element={<Login />} /> */}
       <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
         <Route index element={<Navigate to="/home" />} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
