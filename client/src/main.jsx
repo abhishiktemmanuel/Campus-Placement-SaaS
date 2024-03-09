@@ -8,6 +8,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import AuthForm from './components/Pages/AuthTester.jsx';
 import Layout from './Layout.jsx';
 import './index.css';
 import App from './App.jsx'; // Assuming App is not used since it's not included in the routes below.
@@ -31,7 +32,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="signup" element={<Signup />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<AuthForm />} />
+      {/* <Route path="login" element={<Login />} /> */}
       <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
         <Route index element={<Navigate to="/home" />} />
         <Route path="home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
