@@ -2,7 +2,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import LoadingIndicator from './Loading.jsx'
+import LoadingIndicator from '../global-component/Loading.jsx'
 
 const ProtectedRoute = ({ children }) => {
   const [isUserAuthenticated, setIsUserAuthenticated] = React.useState(null);

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Container from '../container/Container';
-import Logo from '../Logo.jsx';
-import LogoutBtn from './LogoutBtn';
+import Logo from '../global-component/Logo.jsx';
+import LogoutBtn from '../auth-components/LogoutBtn.jsx';
 import SearchBar from './SearchBar';
-import { ProfileButton } from '../ProfileViews.jsx';
+import { ProfileButton } from './ProfileButton.jsx';
 
 function SideMenu() {
   const navigate = useNavigate();

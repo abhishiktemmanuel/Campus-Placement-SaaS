@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SideMenu from './components/Menu/SideMenu'
 import Footer from './components/footer/Footer'
-import { ProfileCard } from './components/ProfileViews'
+import { ProfileCard } from './components/ProfileView'
 
 function Layout() {
   return (

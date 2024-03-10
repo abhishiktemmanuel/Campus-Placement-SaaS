@@ -15,7 +15,7 @@ import App from './App.jsx'; // Assuming App is not used since it's not included
 import Home from './components/Pages/Home.jsx';
 import PastApplications from './components/Pages/PastApplications.jsx';
 import OpenApplications from './components/Pages/OpenApplications.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx'; 
+import ProtectedRoute from './components/container/ProtectedRoute.jsx'; 
 import Profile from './components/Pages/Profile.jsx'; 
 import Help from './components/Pages/Help.jsx';
 
