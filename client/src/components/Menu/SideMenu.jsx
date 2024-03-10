@@ -57,7 +57,7 @@ function SideMenu() {
                 <button
                   onClick={() => handleNavItemClick(item.name, item.slug)}
                   className={`flex items-center w-full px-3 py-2 rounded-lg text-left ${
-                    activeNav === item.name ? 'bg-purple text-white' : 'text-gray-400'
+                    activeNav === item.name ? 'bg-[#5932EA] text-white' : 'text-gray-400'
                   }`}
                 >
                   {/* Replace 'i' with actual icon component */}
@@ -67,7 +67,7 @@ function SideMenu() {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col items-center w-full py-4">
+          <div className="align-baseline items-center w-full py-4">
             <LogoutBtn />
           </div>
         </nav>
