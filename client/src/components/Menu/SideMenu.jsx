@@ -1,69 +1,84 @@
-import React from 'react';
-import SearchBar from './SearchBar';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Container from '../container/Container';
 import Logo from '../Logo.jsx';
 import LogoutBtn from './LogoutBtn';
+import SearchBar from './SearchBar';
 import { ProfileButton } from '../ProfileViews.jsx';
 
 function SideMenu() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [activeNav, setActiveNav] = useState('Home'); // State to track the active nav item
 
   const navItems = [
     {
       name: 'Home',
       slug: "/",
-      active: true,
+      icon: 'home-icon', // Replace with actual icon component or class
     },
     {
       name: 'Past Applications',
       slug: "/past-applications",
-      active: true,
+      icon: 'past-applications-icon', // Replace with actual icon component or class
     },
     {
       name: 'Open Applications',
       slug: "/open-applications",
-      active: true,
+      icon: 'open-applications-icon', // Replace with actual icon component or class
     },
     {
       name: 'Help',
       slug: "/help",
-      active: true,
+      icon: 'help-icon', // Replace with actual icon component or class
     },
-  ]
+  ];
+
+  const handleNavItemClick = (itemName, slug) => {
+    setActiveNav(itemName); // Update the active nav item state
+    navigate(slug); // Navigate to the clicked item's route
+  };
+
   return (
-    <div className="bg-white h-screen">
-  <Container>
-    <nav className="flex flex-col items-center justify-between min-h-full">
-      <div className="w-full">
-        <Link to="/">
-          <Logo className="" />
-        </Link>
-        <hr className="border-t border-gray-200" /> 
-      </div>
+    <div className="bg-white h-screen drawer lg:drawer-open">
+      <Container>
+        <nav className="flex flex-col items-center justify-between min-h-full">
+          <div className="w-full">
+            <Link to="/">
+              <Logo className="" />
+            </Link>
+            <hr className="border-t border-gray-200" /> 
+          </div>
 
-      <ul className="flex flex-col items-start w-full px-4">
-        <ProfileButton className="my-4" />
-        <SearchBar  className="mb-6"/>
-        {navItems.map((item, index) =>
-          item.active ? (
-            <li key={item.name} className="list-none pb-4">
-              <button onClick={() => navigate(item.slug)} className="text-left">{item.name}</button>
-            </li>
-          ) : null
-        )}
-      </ul>
-      <div className="flex flex-col items-center w-full py-4">
-        <LogoutBtn />
-      </div>
-    </nav>
-  </Container>
-</div>
-
-  )
+          <ul className="flex flex-col items-start w-full px-4">
+            <ProfileButton className="my-4" />
+            <SearchBar className="mb-6"/>
+            {navItems.map((item) => (
+              <li key={item.name} className="list-none pb-4 w-full">
+                <button
+                  onClick={() => handleNavItemClick(item.name, item.slug)}
+                  className={`flex items-center w-full px-3 py-2 rounded-lg text-left ${
+                    activeNav === item.name ? 'bg-purple text-white' : 'text-gray-400'
+                  }`}
+                >
+                  {/* Replace 'i' with actual icon component */}
+                  <i className={`${item.icon} text-lg`}></i>
+                  <span className="ml-4">{item.name}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col items-center w-full py-4">
+            <LogoutBtn />
+          </div>
+        </nav>
+      </Container>
+    </div>
+  );
 }
 
-export default SideMenu
+export default SideMenu;
+
+
 
 
 // const SideMenu = () => {
