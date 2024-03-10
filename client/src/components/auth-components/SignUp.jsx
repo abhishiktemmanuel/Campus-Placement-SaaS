@@ -52,8 +52,8 @@ const SignUpForm = ({ toggleForm }) => {
             <input type="checkbox" className="form-checkbox h-4 w-4 text-black mr-2" /> I agree to Terms & Conditions
           </label>
         </div>
-        <button class="submit">Register</button>
-        <button class="submit  text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring" type="button" onClick={handleGoogleSignup}>Sign up with Google</button>
+        <button className="submit">Register</button>
+        <button className="submit  text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring" type="button" onClick={handleGoogleSignup}>Sign up with Google</button>
         <ToggleFormLink isRegistering={true} toggleForm={toggleForm} />
       </form>
     </div>

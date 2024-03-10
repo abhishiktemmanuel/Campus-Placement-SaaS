@@ -2,6 +2,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import LoadingIndicator from './Loading.jsx'
 
 const ProtectedRoute = ({ children }) => {
   const [isUserAuthenticated, setIsUserAuthenticated] = React.useState(null);
@@ -18,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (isUserAuthenticated === null) {
     // Authentication state is still loading
-    return <div>Loading...</div>; // Or some loading indicator
+    return <LoadingIndicator/>; 
   }
 
   if (!isUserAuthenticated) {
