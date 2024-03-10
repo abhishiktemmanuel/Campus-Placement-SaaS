@@ -4,7 +4,7 @@ import rows from '../../testData/rows'
 
 function OpenApplications() {
   return (
-    <div className='flex flex'>
+    <div className='flex'>
       <Applications rows={rows} />
     </div>
   )
