@@ -14,22 +14,22 @@ function SideMenu() {
     {
       name: 'Home',
       slug: "/",
-      icon: 'home-icon', // Replace with actual icon component or class
+      icon: "home-outline", // Replace with actual icon component or class
     },
     {
       name: 'Past Applications',
       slug: "/past-applications",
-      icon: 'past-applications-icon', // Replace with actual icon component or class
+      icon: 'file-tray-stacked-outline', // Replace with actual icon component or class
     },
     {
       name: 'Open Applications',
       slug: "/open-applications",
-      icon: 'open-applications-icon', // Replace with actual icon component or class
+      icon: 'file-tray-full-outline', // Replace with actual icon component or class
     },
     {
       name: 'Help',
       slug: "/help",
-      icon: 'help-icon', // Replace with actual icon component or class
+      icon: 'chatbubbles-outline', // Replace with actual icon component or class
     },
   ];
 
@@ -50,25 +50,27 @@ function SideMenu() {
           </div>
 
           <ul className="flex flex-col items-start w-full px-4">
-            <ProfileButton className="my-4" />
-            <SearchBar className="mb-6"/>
+            <SearchBar className="my-6 "/>
             {navItems.map((item) => (
-              <li key={item.name} className="list-none pb-4 w-full">
+              <li key={item.name} className="list-none font-light pb-4 w-full">
                 <button
                   onClick={() => handleNavItemClick(item.name, item.slug)}
                   className={`flex items-center w-full px-3 py-2 rounded-lg text-left ${
                     activeNav === item.name ? 'bg-[#5932EA] text-white' : 'text-gray-400'
                   }`}
                 >
-                  {/* Replace 'i' with actual icon component */}
-                  <i className={`${item.icon} text-lg`}></i>
+                  <ion-icon name={`${item.icon}`}></ion-icon>
                   <span className="ml-4">{item.name}</span>
                 </button>
               </li>
             ))}
           </ul>
           <div className="align-baseline items-center w-full py-4">
-            <LogoutBtn />
+            <div className='flex flex-row'>
+              <ProfileButton className="my-4" />
+              <LogoutBtn />
+            </div>
+            
           </div>
         </nav>
       </Container>
