@@ -32,9 +32,7 @@ const SearchBar = ({className = ""}) => {
          className="inline-flex flex-row-reverse content-end  px-[6px] py-[2px] absolute top-[7px] left-[174px] bg-white rounded-full shadow-md"
          aria-label="Submit search"
        >
-         <span className="relative w-fit  font-text-small-10px text-theme-mail-text-primary-light">
-           ⌘F
-         </span>
+          <ion-icon name="search-outline" size="small"></ion-icon>
        </button>
      </form>
    );

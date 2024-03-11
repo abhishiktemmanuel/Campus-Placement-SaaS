@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SideMenu from './components/Menu/SideMenu'
 import Footer from './components/footer/Footer'
-import { ProfileCard } from './components/ProfileView'
+import Header from './components/header/Header'
 
 function Layout() {
   return (
@@ -12,7 +12,7 @@ function Layout() {
           <SideMenu/>
         </div>
         <div className="overflow-auto md:w-full lg:ml-[25%] lg:w-3/4">
-          <ProfileCard/>
+          <Header/>
           <Outlet/>
           <Footer/>
         </div>

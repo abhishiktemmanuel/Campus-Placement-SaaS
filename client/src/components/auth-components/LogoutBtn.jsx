@@ -16,12 +16,10 @@ function LogoutBtn() {
   };
 
   return (
-    <button
-      onClick={handleLogout}
-      className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >
-      Logout
+    <button onClick={handleLogout} className="ml-3">
+      <ion-icon name="log-out-outline" size="large"></ion-icon>
     </button>
+
   );
 }
 
