@@ -24,24 +24,19 @@ const CardList = ({ cards }) => {
       </button>
       <div
         ref={scrollerRef}
-        className="flex overflow-x-scroll snap-x snap-mandatory pb-4 pt-4 no-scrollbar"
+        className="flex overflow-x-scroll  pb-4 pt-4 no-scrollbar"
         style={{ scrollBehavior: 'smooth' }}
       >
-        {cards.map((cardData, index) => (
-          <Card
-            key={index}
-            image={cardData.image}
-            title={cardData.title}
-            company={cardData.company}
-            status={cardData.status}
-          />
+        {cards.map((ListedJob) => (
+            <Card ListedJob = {ListedJob}
+            key={ListedJob.id}/>
         ))}
       </div>
       <button
         onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
         onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
         className="absolute right-0 z-10 opacity-0 hover:opacity-100 flex items-center justify-center h-full"
-        onClick={() => scroll('right')}
+        onClick={() => scroll('right ')}
         style={{ top: '50%', transform: 'translateY(-50%)' }}
       >
         &#9654; {/* Right arrow symbol */}

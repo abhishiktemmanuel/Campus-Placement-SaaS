@@ -9,9 +9,8 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import CardList from './components/card-scroll/CardScroller'
-import Applications from './components/list'
+import Applications from './components/Applications'
 import MenuBar from './components/Menu/SideMenu'
-import JobDescription from './components/jobDescription'
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +29,6 @@ function App() {
       <div className="overflow-hidden ">
             <CardList cards={cardsData} />
             <Applications rows={rows} />
-            <JobDescription job={jobData} />
       </div>
     </div>
   );

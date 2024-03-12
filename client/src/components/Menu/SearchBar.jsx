@@ -17,7 +17,7 @@ const SearchBar = ({className = ""}) => {
    };
  
    return (
-     <form onSubmit={handleSubmit} className={`relative w-[220px] h-[40px] bg-gray-100 rounded-[12px] shadow-sm ${className}`}>
+     <form onSubmit={handleSubmit} className={`relative w-full h-[40px] bg-gray-100 rounded-[12px] shadow-sm ${className}`}>
        {/* Search icon can be placed here */}
        <input
          type="text"
@@ -29,10 +29,10 @@ const SearchBar = ({className = ""}) => {
        />
        <button
          type="submit"
-         className="inline-flex flex-row-reverse content-end  px-[6px] py-[2px] absolute top-[7px] left-[174px] bg-white rounded-full shadow-md"
+         className="inline-flex flex-row-reverse content-end  px-[6px] py-[2px] absolute top-[9px] right-[185px]"
          aria-label="Submit search"
        >
-          <ion-icon name="search-outline" size="small"></ion-icon>
+          <ion-icon name="search-outline" size="small" ></ion-icon>
        </button>
      </form>
    );

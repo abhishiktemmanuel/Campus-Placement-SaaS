@@ -1,6 +1,6 @@
 import React from 'react'
 import CardList from '../card-scroll/CardScroller'
-import Applications from '../list'
+import Applications from '../Applications'
 import cardsData from '../../testData/cardsData'
 import rows from '../../testData/rows'
 

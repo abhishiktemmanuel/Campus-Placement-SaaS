@@ -1,8 +1,8 @@
 import React from 'react'
-import Applications from '../list'
+import Applications from '../Applications.jsx'
 import rows from '../../testData/rows'
 
-function OpenApplications() {
+export default function OpenApplications() {
   return (
     <div className='flex'>
       <Applications rows={rows} />
@@ -10,4 +10,3 @@ function OpenApplications() {
   )
 }
 
-export default OpenApplications

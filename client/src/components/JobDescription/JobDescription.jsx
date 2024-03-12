@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const JobDescription = ({ job }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg  mx-auto my-8 m-5">
+    <div className="bg-white rounded-2xl p-6 shadow-lg  mx-auto my-8 m-5 ">
       <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
       <p className="text-md mb-4">{job.summary}</p>
       <div className="mb-4">
@@ -35,7 +36,19 @@ const JobDescription = ({ job }) => {
         <p>{job.companyOverview}</p>
       </div>
     </div>
+
   );
 };
+JobDescription.propTypes = {
+  job: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    summary: PropTypes.string.isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    qualifications: PropTypes.arrayOf(PropTypes.string).isRequired,
+    workingConditions: PropTypes.string.isRequired,
+    salary: PropTypes.string.isRequired,
+    companyOverview: PropTypes.string.isRequired,
+  }).isRequired,
+}; 
 
 export default JobDescription;
