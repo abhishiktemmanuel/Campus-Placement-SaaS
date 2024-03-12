@@ -1,5 +1,5 @@
 import React from 'react'
-import Applications from '../list'
+import Applications from '../Applications'
 import rows from '../../testData/rows'
 
 function PastApplications() {
