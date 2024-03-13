@@ -1,9 +1,17 @@
 import React from 'react';
+import SearchBar from './global-component/SearchBar';
+import Filter from './global-component/Filter';
 
-function Applications({ rows }) { // Accept rows as props
+function Applications({ rows , header}) { // Accept rows as props
   return (
     <div className="m-5   rounded-[30px] overflow-hidden bg-white shadow-md flex-grow">
-      <h2 className="col-span-{5} w-full text-left text-lg font-semibold pl-[25px] pt-[15px]">Past Applications</h2>
+      <div className='justify-between w-full flex flex-row px-[25px] pt-[15px]'>
+        <h2 className="col-span-{5} pt-1 text-left text-xl font-semibold ">{header}</h2>
+        <div className=''>
+          <SearchBar/>
+          <Filter/>
+        </div>
+      </div>
       <table className="w-full rounded-[30px] overflow-hidden bg-white table-auto">
         <thead className="border-b-2">
           <tr>

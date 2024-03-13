@@ -4,12 +4,15 @@ import Applications from '../Applications'
 import cardsData from '../../testData/cardsData'
 import rows from '../../testData/rows'
 
+
+
+
 function Home() {
   return (
     <div>
       <div>
             <CardList cards={cardsData} />
-            <Applications rows={rows} />
+            <Applications rows={rows} header="In progress" />
       </div>
     </div>
   )

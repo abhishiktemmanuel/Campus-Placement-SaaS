@@ -3,10 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import Container from '../container/Container';
 import Logo from '../global-component/Logo.jsx';
 import LogoutBtn from '../auth-components/LogoutBtn.jsx';
-import SearchBar from './SearchBar';
+import SearchBar from '../global-component/SearchBar.jsx';
 import { ProfileButton } from './ProfileButton.jsx';
 
-function SideMenu() {
+
+
+
+  
+
+function SideMenu(user) {
+
+  
+
   const navigate = useNavigate();
   const [activeNav, setActiveNav] = useState('Home'); // State to track the active nav item
 
@@ -39,42 +47,43 @@ function SideMenu() {
   };
 
   return (
-    <div className="bg-white h-screen drawer lg:drawer-open">
-      <Container>
-        <nav className="flex flex-col items-center justify-between min-h-full">
-          <div className="w-full">
-            <Link to="/">
-              <Logo className="" />
-            </Link>
-            <hr className="border-t border-gray-200" /> 
-          </div>
-
-          <ul className="flex flex-col items-start w-full px-4">
-            <SearchBar className="my-6 "/>
-            {navItems.map((item) => (
-              <li key={item.name} className="list-none font-light pb-4 w-full">
-                <button
-                  onClick={() => handleNavItemClick(item.name, item.slug)}
-                  className={`flex items-center w-full px-3 py-2 rounded-lg text-left ${
-                    activeNav === item.name ? 'bg-[#5932EA] text-white' : 'text-gray-400'
-                  }`}
-                >
-                  <ion-icon name={`${item.icon}`}></ion-icon>
-                  <span className="ml-4">{item.name}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-          <div className="align-baseline items-center w-full py-4">
-            <div className='flex flex-row'>
-              <ProfileButton className="my-4" />
-              <LogoutBtn />
-            </div>
-            
-          </div>
-        </nav>
-      </Container>
+    <div className="bg-white h-screen relative md:block hidden">
+      <h1>{}</h1>
+  <Container>
+    <div className="w-full">
+      <Link to="/">
+        <Logo className="" />
+      </Link>
+      <hr className="border-t border-gray-200" /> 
     </div>
+    <nav className="flex flex-col items-center justify-between min-h-full">
+      <ul className="flex flex-col items-start w-full px-4">
+        <SearchBar className="my-6 w-full"/>
+        {navItems.map((item) => (
+          <li key={item.name} className="list-none font-light pb-4 w-full">
+            <button
+              onClick={() => handleNavItemClick(item.name, item.slug)}
+              className={`flex items-center w-full px-3 py-2 rounded-lg text-left ${
+                activeNav === item.name ? 'bg-[#5932EA] text-white' : 'text-gray-400'
+              }`}
+            >
+              <ion-icon name={`${item.icon}`}></ion-icon>
+              <span className="ml-4">{item.name}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="absolute bottom-0 w-full px-4 py-2">
+      <div className="flex flex-row ">
+        <ProfileButton className="my-4" name={"Hero Admi"} role={user.role} imageUrl={user.imageUrl}/>
+        <LogoutBtn className='ml-4' />
+      </div>
+    </div>
+    </nav>
+    
+  </Container>
+</div>
+
   );
 }
 
