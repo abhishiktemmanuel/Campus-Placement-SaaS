@@ -5,13 +5,15 @@ import Logo from '../global-component/Logo.jsx';
 import LogoutBtn from '../auth-components/LogoutBtn.jsx';
 import SearchBar from '../global-component/SearchBar.jsx';
 import { ProfileButton } from './ProfileButton.jsx';
+import { useSelector } from 'react-redux';
 
 
 
 
   
 
-function SideMenu(user) {
+function SideMenu() {
+  const user = useSelector((state) => state.user);
 
   
 
@@ -75,7 +77,7 @@ function SideMenu(user) {
       </ul>
       <div className="absolute bottom-0 w-full px-4 py-2">
       <div className="flex flex-row ">
-        <ProfileButton className="my-4" name={"Hero Admi"} role={user.role} imageUrl={user.imageUrl}/>
+        <ProfileButton className="my-4" name={user.email} role={user.role} imageUrl={user.imageUrl}/>
         <LogoutBtn className='ml-4' />
       </div>
     </div>

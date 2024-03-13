@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ToggleFormLink from "./Toggle.jsx";
-import { signInWithEmail, signInWithGoogle } from '../../api/auth.js';
+import { signInWithEmail, signInWithGoogle } from '../../userAuthentication/auth.js';
 
 const LoginForm = ({ toggleForm }) => {
   const [email, setEmail] = useState('');
