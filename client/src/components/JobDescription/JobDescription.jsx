@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const JobDescription = ({ job }) => {
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg  mx-auto my-8 m-5 ">
-      <svg class="animate-bounce w-6 h-6 ...">
+      <svg className="animate-bounce w-6 h-6 ...">
     </svg>
       <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
       <p className="text-md mb-4">{job.summary}</p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ToggleFormLink from "./Toggle.jsx";
-import { signUpWithEmail, signUpWithGoogle } from '../../userAuthentication/auth.js';
+import { signUpWithEmail, signUpWithGoogle } from '../../firebase-auth/auth.js';
 
 const SignUpForm = ({ toggleForm }) => {
   const [username, setUsername] = useState('');
@@ -40,12 +40,12 @@ const SignUpForm = ({ toggleForm }) => {
           <label htmlFor="username" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-6">Username</label>
         </div>
         <div className="relative">
-          <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="input-field peer " placeholder="Email" />
-          <label htmlFor="email" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Email</label>
+          <input type="email" id="signup-email" value={email} onChange={(e) => setEmail(e.target.value)} required className="input-field peer " placeholder="Email" />
+          <label htmlFor="signup-email" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Email</label>
         </div>
         <div className="relative">
-          <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="peer input-field" placeholder="Password" />
-          <label htmlFor="password" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Password</label>
+          <input type="password" id="signup-password" value={password} onChange={(e) => setPassword(e.target.value)} required className="peer input-field" placeholder="Password" />
+          <label htmlFor="signup-password" className="absolute left-2 -top-6 transition-all peer-placeholder-shown:top-0 peer-placeholder-shown: peer-placeholder-shown:text-base peer-focus:-top-6 ">Password</label>
         </div>        
         <div className="flex justify-between items-center mb-6">
           <label className="flex items-center text-sm text-black">

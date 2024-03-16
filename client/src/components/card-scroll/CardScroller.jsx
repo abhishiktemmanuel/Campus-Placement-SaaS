@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import Card from './ApplicationCard';
+import { customAlphabet } from 'nanoid';
+
+const nanoid = customAlphabet('1234567890abcdefghijklmnopqrstuvwxyz', 10);
 
 const CardList = ({ cards }) => {
   const scrollerRef = useRef(null);
@@ -11,6 +14,7 @@ const CardList = ({ cards }) => {
       scrollerRef.current.scrollBy({ left: scrollAmount });
     }
   };
+
   return (
     <div className="relative ml-5">
       <button
@@ -28,15 +32,14 @@ const CardList = ({ cards }) => {
         style={{ scrollBehavior: 'smooth' }}
       >
         {cards.map((ListedJob) => (
-            <Card ListedJob = {ListedJob}
-            key={ListedJob.id}/>
+          <Card ListedJob={ListedJob} key={nanoid()} id={nanoid()} />
         ))}
       </div>
       <button
         onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
         onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
         className="absolute right-0 z-10 opacity-0 hover:opacity-100 flex items-center justify-center h-full"
-        onClick={() => scroll('right ')}
+        onClick={() => scroll('right')}
         style={{ top: '50%', transform: 'translateY(-50%)' }}
       >
         &#9654; {/* Right arrow symbol */}
