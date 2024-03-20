@@ -2,7 +2,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
-import store from './store/store.js';
+import { store } from './app/store.js';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -22,8 +22,7 @@ import Profile from './components/Pages/Profile.jsx';
 import Help from './components/Pages/Help.jsx';
 import { getAuth } from "firebase/auth";
 
-const auth = getAuth();
-const user = auth.currentUser;
+
 
 
 
@@ -51,7 +50,7 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 );

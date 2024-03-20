@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
   
 
 function SideMenu() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.auth.user);
 
   
 

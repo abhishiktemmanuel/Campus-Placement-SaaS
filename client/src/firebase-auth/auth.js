@@ -30,10 +30,14 @@ export const signUpWithEmail = async (email, password) => {
 
 export const signInWithGoogle = async () => {
   const result = await signInWithPopup(auth, googleProvider);
-  return result.user;
+  const user = result.user;
+  const idToken = await user.getIdToken(true);
+  return { user, idToken };
 };
 
 export const signUpWithGoogle = async () => {
   const result = await signInWithPopup(auth, googleProvider);
-  return result.user;
+  const user = result.user;
+  const idToken = await user.getIdToken(true);
+  return { user, idToken };
 };

@@ -1,23 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../config/firebase-config.js';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../../store/store.js';
+import { getAuth, signOut } from "firebase/auth";
+import { logout } from '../../features/authSlice.js'; 
 
 function LogoutBtn({ className = "" }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
-    try {
-      await auth.signOut();
-      dispatch(logoutUser()); // Dispatch the logoutUser action
-      console.log('User logged out successfully');
-      navigate('/'); // Redirect to the login page
-    } catch (error) {
-      console.error('Error logging out:', error);
-    }
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      dispatch(logout()); 
+      navigate('/'); 
+    }).catch((error) => {
+      console.error("Logout failed:", error);
+    });
   };
+
 
   return (
     <button onClick={handleLogout} className={`${className}`}>

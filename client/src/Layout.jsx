@@ -6,27 +6,14 @@ import Header from './components/header/Header';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import AuthForm from './components/Pages/AuthForm';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser, clearUser } from './store/store.js';
 
 
 const auth = getAuth();
 
 function Layout() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.auth.user);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUser(user));
-      } else {
-        console.log("You are logged out");
-        dispatch(clearUser());
-      }
-    });
-
-    return unsubscribe;
-  }, [dispatch]);
 
   if (!user) {
     return <AuthForm />;

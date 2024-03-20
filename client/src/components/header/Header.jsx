@@ -1,12 +1,16 @@
 import React from 'react';
 import { Card, CardContent, Typography, Avatar, Grid } from '@mui/material';
+import { useSelector } from 'react-redux';
+
 
 const Header = ({ name, degree, gpa, inProgress, applied }) => {
+  const user = useSelector((state) => state.auth.user);
+
   return (
   <>
   <div className='my-5 mx-4 text-left'>
     <Typography gutterBottom variant="h6" component="div" >
-              Hello, {name} 👋
+              Hello, {user.displayName} 👋
     </Typography>
     <Typography gutterBottom variant="h7" component="div" color="text.secondary">
               Track your campus placements with us

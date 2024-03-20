@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import ToggleFormLink from "./Toggle.jsx";
-import { signInWithEmail, signInWithGoogle } from '../../firebase-auth/auth.js';
+import { loginUser, loginWithGoogle } from '../../features/authSlice.js';
 
 const LoginForm = ({ toggleForm }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { status, error } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmail(email, password);
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      alert('Login failed. Please try again.');
-    }
+    dispatch(loginUser({ email, password }));
   };
 
   const handleGoogleSignIn = async () => {
-    try {
-      await signInWithGoogle();
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      alert('Google sign-in failed. Please try again.');
-    }
+    dispatch(loginWithGoogle());
   };
+
+  // Navigate on successful login
+  if (status === 'succeeded') {
+    navigate('/');
+  }
+
+  // Optionally, handle error state here
 
   return (
     <div className="text-center">
@@ -51,3 +49,5 @@ const LoginForm = ({ toggleForm }) => {
 };
 
 export default LoginForm;
+
+
