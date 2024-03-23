@@ -1,5 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { signInWithEmail, signInWithGoogle } from "../firebase-auth/auth.js";
+import {
+  signInWithEmail,
+  signInWithGoogle,
+  signUpWithEmail,
+  signUpWithGoogle,
+} from "../firebase-auth/auth.js";
 import axios from "axios";
 
 const initialState = {
@@ -26,6 +31,30 @@ export const loginWithGoogle = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await signInWithGoogle();
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const signUpUser = createAsyncThunk(
+  "auth/signUpUser",
+  async ({ email, password }, { rejectWithValue }) => {
+    try {
+      const response = await signUpWithEmail(email, password);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const signUpWithGoogleThunk = createAsyncThunk(
+  "auth/signUpWithGoogle",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await signUpWithGoogle();
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -83,6 +112,34 @@ const authSlice = createSlice({
         localStorage.setItem("token", action.payload.token);
       })
       .addCase(loginWithGoogle.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(signUpUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(signUpUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        localStorage.setItem("token", action.payload.token);
+      })
+      .addCase(signUpUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(signUpWithGoogleThunk.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(signUpWithGoogleThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        localStorage.setItem("token", action.payload.token);
+      })
+      .addCase(signUpWithGoogleThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
