@@ -45,6 +45,11 @@ const userSchema = new Schema(
     refreshToken: {
       type: String,
     },
+    role: {
+      type: String,
+      enum: ["student", "company", "college"],
+      required: true,
+    },
   },
   {
     timestamps: true,
