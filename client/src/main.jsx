@@ -1,4 +1,3 @@
-// main.jsx
 import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
@@ -10,17 +9,18 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import AuthForm from './components/Pages/AuthForm.jsx';
-import Layout from './Layout.jsx';
 import './index.css';
-import App from './App.jsx'; // Assuming App is not used since it's not included in the routes below.
+import App from './App.jsx'; 
 import Home from './components/Pages/Home.jsx';
 import PastApplications from './components/Pages/PastApplications.jsx';
 import OpenApplications from './components/Pages/OpenApplications.jsx';
-import ProtectedRoute from './components/container/ProtectedRoute.jsx'; 
 import Profile from './components/Pages/Profile.jsx'; 
 import Help from './components/Pages/Help.jsx';
+
 import { getAuth } from "firebase/auth";
+import AuthForm from './components/Pages/AuthForm.jsx';
+import ProtectedRoute from './components/container/ProtectedRoute.jsx'; 
+
 
 
 
@@ -30,7 +30,7 @@ import { getAuth } from "firebase/auth";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<App/>}>
         <Route index element={<Navigate to="/home" />} />
         <Route path="home" element={<Home/>} />
         <Route path="past-applications" element={<PastApplications />} />
